@@ -7,3 +7,10 @@ const animalSays = document.getElementById('animal-says');
 function findById(id, data) {
     return data.find((item) => item.id === id);
 }
+
+const params = new URLSearchParams(window.location.search);
+const animal = findById(params.get('id'), animals);
+console.log(animal);
+animalName.textContent = animal.name;
+animalImage.src = `../assets/${animal.type}.svg`;
+animalSays.textContent = animal.says;
